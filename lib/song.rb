@@ -9,11 +9,27 @@ class Song
     @name = name
     @artist = artist
     @genre = genre
-
+    @@artists << artist
+    @@genres << genre
   end
 
+  def self.count
+    @@count
+  end
 
+  def self.artists
+    @@artists.uniq
+  end
 
+  def self.genres
+    @@genres.uniq
+  end
 
+  def self.artist_count
+    Hash[*@@artists.group_by {|v| v}.flat_map{|k, v| [k, v.size]}]
+  end
 
+  def self.genre_count
+    Hash[*@@genres.group_by {|v| v}.flat_map{|k, v| [k, v.size]}]
+  end
 end
