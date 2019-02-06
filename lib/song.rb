@@ -26,7 +26,16 @@ class Song
   end
 
   def self.artist_count
-    Hash[*@@artists.group_by {|v| v}.flat_map{|k, v| [k, v.size]}]
+  Hash[*@@artists.group_by {|v| v}.flat_map{|k, v| [k, v.size]}]
+  #  artist_count = {}
+  #  @@artists.each do |artist|
+  #    if artist_count[artist]
+  #      artist_count += 1
+  #    else
+  #      artist_count[artist] = 1
+  #    end
+  #    artist_count
+  #  end
   end
 
   def self.genre_count
